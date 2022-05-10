@@ -23,18 +23,23 @@ struct Treveltime {
 #[warn(dead_code)]
 impl Treveltime {
     fn time_to_trevel(&self) -> f32 {
-        let mut duble_speed = 1;
+        let mut double_speed = 1;
         let mut time: f32 = 0.0;
-        
+       
         if self.car_color_red == true {
-            duble_speed = 2;
+            double_speed = 2;
         }
-
-        if self.distance <= 0 || self.car_speed <= 0 {
+        
+        if self.distance <= 0 {
+            println!("We have already arrived at our destination");
+            return time;
+        }else if self.car_speed <= 0 {
+            println!("We need to move if we want to get somewhere");
             return time;
         }else {
-            time = self.distance as f32 / (self.car_speed*duble_speed) as f32;
+            time = self.distance as f32 / (self.car_speed*double_speed) as f32;
         }
+        
         return time;
     }
 }
@@ -123,11 +128,11 @@ mod test {
                 car_color_red: true_false,
             };
 
-            let mut duble_speed = 1;
+            let mut double_speed = 1;
             if true_false == true {
-               duble_speed = 2;
+               double_speed = 2;
             }
-            let expected_time: f32 = time.distance as f32 / (time.car_speed*duble_speed) as f32;
+            let expected_time: f32 = time.distance as f32 / (time.car_speed*double_speed) as f32;
 
             let temp_time = time.time_to_trevel();
             assert_eq!(expected_time, temp_time);
