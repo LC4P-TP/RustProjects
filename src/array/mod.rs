@@ -1,1 +1,1 @@
-mod array_training;
+mod array_algorithms;
