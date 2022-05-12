@@ -1,34 +1,6 @@
 use std::collections::HashMap;
-use std::io::*;
 
-pub fn count_symbol() {
-    println!("Enter text");
-    let mut text = String::new();
-    stdin().read_line(&mut text).unwrap();
-    text = text.trim().parse().unwrap();
-
-    println!("Enter symbol you want find");
-    let symbol_need_find: char = imput_symbol();
-    
-    println!("{:?}", find_symbol(text, symbol_need_find));
-}
-
-fn imput_symbol() -> char {
-    loop {
-        let mut imput_symbol = String::new();
-        stdin().read_line(&mut imput_symbol).unwrap();
-
-        let check_symbol: char = match imput_symbol.trim().parse(){
-            Ok(char) => char,
-            Err(_) => {
-                println!("Please enter one symbol");
-                continue;
-            }
-        };
-        return check_symbol;
-    }
-}
-
+#[warn(dead_code)]
 fn create_dictionary(text: String) -> HashMap<char, i32> {
     let mut dictionary = HashMap::new();
 
@@ -39,6 +11,7 @@ fn create_dictionary(text: String) -> HashMap<char, i32> {
     return dictionary;
 }
 
+#[warn(dead_code)]
 fn find_symbol(text: String, symbol_need_find: char) -> (char, i32) {
 
     let dictionary = create_dictionary(text);
