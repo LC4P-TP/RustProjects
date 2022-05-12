@@ -1,5 +1,6 @@
 mod array;
-mod structures;
+mod structure;
+mod string;
 
 fn main() {
     
