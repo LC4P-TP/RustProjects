@@ -1,7 +1,5 @@
-mod array;
-mod structure;
-mod string;
+// mod array;
+// mod string;
+// mod structure;
 
-fn main() {
-    
-}
+fn main() {}
