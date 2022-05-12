@@ -24,10 +24,10 @@ impl Treveltime {
             double_speed = 2;
         }
 
-        if self.distance <= 0 {
+        if self.distance == 0 {
             println!("We have already arrived at our destination");
             return time;
-        } else if self.car_speed <= 0 {
+        } else if self.car_speed == 0 {
             println!("We need to move if we want to get somewhere");
             return time;
         } else {
