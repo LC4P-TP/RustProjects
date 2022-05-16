@@ -16,9 +16,9 @@ pub fn array_generation(array_size: u8, range_start: i16, range_end: i16) -> Vec
 
 pub fn negative_elements(arr: Vec<i16>) -> Vec<i16> {
     let mut negative_array = vec![];
-    for n in 0..arr.len() {
-        if arr[n] < 0 {
-            negative_array.push(arr[n]);
+    for element in arr {
+        if element < 0 {
+            negative_array.push(element);
         }
     }
     negative_array
@@ -26,21 +26,22 @@ pub fn negative_elements(arr: Vec<i16>) -> Vec<i16> {
 
 pub fn sum_elements(arr: Vec<i16>) -> i16 {
     let mut sum: i16 = 0;
-    for n in 0..arr.len() {
-        sum += arr[n];
-    }
+    
+    for element in arr {
+        sum += element;
     sum
 }
 
 pub fn min_max(arr: Vec<i16>) -> (i16, i16) {
     let mut max = arr[0];
     let mut min = arr[0];
-    for i in 0..arr.len() {
-        if max < arr[i] {
-            max = arr[i];
+    
+    for element in arr {
+        if max < element {
+            max = element;
         }
-        if min > arr[i] {
-            min = arr[i]
+        if min > element {
+            min = element
         }
     }
     (min, max)
@@ -49,8 +50,8 @@ pub fn min_max(arr: Vec<i16>) -> (i16, i16) {
 pub fn cound_even_and_odd_elements(arr: Vec<i16>) -> (i16, i16) {
     let mut number_even = 0;
     let mut number_odd = 0;
-    for n in 0..arr.len() {
-        if arr[n] % 2 == 0 {
+    for element in arr {
+        if element % 2 == 0 {
             number_even += 1;
         } else {
             number_odd += 1;
@@ -110,11 +111,11 @@ pub fn reverse_array_push(arr: Vec<i16>) -> Vec<i16> {
 pub fn positive_array_and_negative_array(arr: Vec<i16>) -> (Vec<i16>, Vec<i16>) {
     let mut positive_arr: Vec<i16> = vec![];
     let mut negative_arr: Vec<i16> = vec![];
-    for n in 0..arr.len() {
-        if arr[n] >= 0 {
-            positive_arr.push(arr[n]);
+    for element in arr {
+        if element >= 0 {
+            positive_arr.push(element);
         } else {
-            negative_arr.push(arr[n])
+            negative_arr.push(element)
         }
     }
     (positive_arr, negative_arr)
