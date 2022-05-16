@@ -1,7 +1,6 @@
+#![allow(dead_code, unused_imports)]
 mod array;
-mod structure;
 mod string;
+mod structure;
 
-fn main() {
-    
-}
+fn main() {}

@@ -1,6 +1,4 @@
-#[warn(dead_code)]
 pub fn string_encoding(line: String) -> String {
-
     let mut output_text = String::new();
     let mut symbol = line.chars().next().unwrap();
     let mut count = 0;
@@ -8,7 +6,7 @@ pub fn string_encoding(line: String) -> String {
     for list_symbol in line.chars() {
         if list_symbol == symbol {
             count += 1;
-        }else {
+        } else {
             output_text.push(symbol);
             if count > 1 {
                 output_text.push_str(&count.to_string());
@@ -24,7 +22,7 @@ pub fn string_encoding(line: String) -> String {
         output_text.push_str(&count.to_string());
     }
 
-    return output_text;
+    output_text
 }
 
 #[cfg(test)]
@@ -34,10 +32,10 @@ mod test {
     #[test]
     fn test_grouping_symbol_word() {
         let text = String::from("hello");
-        
+
         let expected_text = string_encoding(text);
 
-        assert_eq!(String::from("hel2o"),  expected_text);
+        assert_eq!(String::from("hel2o"), expected_text);
     }
 
     #[test]
