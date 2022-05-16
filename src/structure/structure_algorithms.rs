@@ -9,7 +9,6 @@ pub fn struct_training() {
     println!("Trevel time is: ~{:?}h", time.time_to_trevel());
 }
 
-#[derive(Debug)]
 struct Treveltime {
     car_speed: u32,
     distance: u32,
@@ -124,7 +123,7 @@ mod test {
             };
 
             let mut double_speed = 1;
-            if true_false == true {
+            if true_false {
                 double_speed = 2;
             }
             let expected_time: f32 = time.distance as f32 / (time.car_speed * double_speed) as f32;

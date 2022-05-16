@@ -3,6 +3,7 @@ use rand::Rng;
 pub fn array_random(array_size: u8) -> Vec<i16> {
     array_generation(array_size, -5, 5)
 }
+
 pub fn array_generation(array_size: u8, range_start: i16, range_end: i16) -> Vec<i16> {
     let mut array = vec![];
 
@@ -25,15 +26,16 @@ pub fn negative_elements(arr: Vec<i16>) -> Vec<i16> {
 
 pub fn sum_elements(arr: Vec<i16>) -> i16 {
     let mut sum: i16 = 0;
+    
     for element in arr {
         sum += element;
-    }
     sum
 }
 
 pub fn min_max(arr: Vec<i16>) -> (i16, i16) {
     let mut max = arr[0];
     let mut min = arr[0];
+    
     for element in arr {
         if max < element {
             max = element;
@@ -145,10 +147,10 @@ mod test {
         let mut array: Vec<i16> = vec![];
         let size = thread_rng().gen_range(1..=100);
         for _ in 0..size {
-            let number = thread_rng().gen_range(-1 * size..size);
+            let number = thread_rng().gen_range(-size..size);
             array.push(number);
         }
-        return array;
+        array
     }
 
     #[test]
@@ -167,13 +169,13 @@ mod test {
     }
     //////////////////////////////////////////////////////////////
     #[test]
-    fn test_negative_elements_positiv_array(){
+    fn test_negative_elements_positiv_array() {
         let array = vec![1, 1, 1, 1, 1];
         let array = negative_elements(array);
         assert_eq!(array.len(), 0)
     }
     #[test]
-    fn test_negative_elements_mix_array(){
+    fn test_negative_elements_mix_array() {
         let array = vec![-1, -1, 1, 1, -1];
         let array = negative_elements(array);
         assert_eq!(array.len(), 3)
@@ -229,7 +231,7 @@ mod test {
             let array: Vec<i16> = random_array_to_testing();
 
             let mut test_array = array.clone();
-            test_array.sort();
+            test_array.sort_unstable();
             test_array.dedup();
 
             let delet_duplicate_array = delet_duplicate(array);
@@ -281,7 +283,7 @@ mod test {
             let array: Vec<i16> = random_array_to_testing();
 
             let mut left_array = array.clone();
-            left_array.sort();
+            left_array.sort_unstable();
             let mut right_array = array.clone();
             right_array.sort_by(|a, b| b.cmp(a));
 
