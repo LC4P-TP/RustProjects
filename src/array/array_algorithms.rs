@@ -26,16 +26,17 @@ pub fn negative_elements(arr: Vec<i16>) -> Vec<i16> {
 
 pub fn sum_elements(arr: Vec<i16>) -> i16 {
     let mut sum: i16 = 0;
-    
+
     for element in arr {
         sum += element;
+    }
     sum
 }
 
 pub fn min_max(arr: Vec<i16>) -> (i16, i16) {
     let mut max = arr[0];
     let mut min = arr[0];
-    
+
     for element in arr {
         if max < element {
             max = element;

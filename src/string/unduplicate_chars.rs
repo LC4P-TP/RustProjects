@@ -5,7 +5,6 @@ pub fn unduplicate_chars(line: String) -> HashSet<char> {
 
     for symbol in line.chars() {
         result.insert(symbol);
-
     }
 
     return result;
@@ -14,7 +13,7 @@ pub fn unduplicate_chars(line: String) -> HashSet<char> {
 #[cfg(test)]
 mod test {
     use super::*;
-    
+
     #[test]
     fn test_unduplicate_chars_word() {
         let test_text = String::from("wwwooolf");
@@ -30,7 +29,9 @@ mod test {
         let test_text = String::from("Wwooolf inn thhe    forest");
 
         let result = unduplicate_chars(test_text);
-        let expection = HashSet::from(['o', 'n', 't', 'r', 'W', 'e', 'i', 's', 'h', 'f', 'w', 'l', ' ']);
+        let expection = HashSet::from([
+            'o', 'n', 't', 'r', 'W', 'e', 'i', 's', 'h', 'f', 'w', 'l', ' ',
+        ]);
 
         assert_eq!(expection, result);
     }
