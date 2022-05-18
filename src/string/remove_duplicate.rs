@@ -7,7 +7,7 @@ fn remove_duplicate(str_1: String, str_2: String) -> String {
 
     let result = hash_set_1.difference(&hash_set_2).collect();
    
-    return result;
+    result
 
 }
 

@@ -7,7 +7,7 @@ pub fn unduplicate_chars(line: String) -> HashSet<char> {
         result.insert(symbol);
     }
 
-    return result;
+    result
 }
 
 #[cfg(test)]
