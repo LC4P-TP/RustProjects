@@ -1,14 +1,12 @@
 use std::collections::HashSet;
 
 fn remove_duplicate(str_1: String, str_2: String) -> String {
-
     let hash_set_1: HashSet<char> = str_1.chars().collect();
     let hash_set_2: HashSet<char> = str_2.chars().collect();
 
     let result = hash_set_1.difference(&hash_set_2).collect();
-   
-    result
 
+    result
 }
 
 #[cfg(test)]
@@ -32,7 +30,7 @@ mod test {
         let line_2 = String::from("second the word");
 
         let result = remove_duplicate(line_1, line_2);
-        let expection= String::from("fi");
+        let expection = String::from("if");
 
         assert_eq!(expection, result);
     }
