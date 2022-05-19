@@ -30,7 +30,7 @@ mod test {
         let line_2 = String::from("second the word");
 
         let result = remove_duplicate(line_1, line_2);
-        let expection = String::from("if");
+        let expection = String::from("fi");
 
         assert_eq!(expection, result);
     }
